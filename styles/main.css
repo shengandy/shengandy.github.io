@@ -1,3 +1,176 @@
+:root { --max: 820px; --meta-margin: 45px;
+  --meta-font-size: 0.9em;}
+
+* { box-sizing: border-box; }
+
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  line-height: 1.55;
 }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 28px 18px;
+}
+
+.site-header {
+  position: relative;
+  width: 100%;
+  padding: 25px var(--meta-margin) 0;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+@keyframes spinOnce {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.home-link:hover .home-icon {
+  animation: spinOnce 700ms ease-in-out;
+}
+
+.nav {
+  display: flex;
+  gap: 18px;
+  justify-content: flex-end;
+  font-size: var(--meta-font-size);
+  transform: translateY(-1px);
+}
+
+.nav-link {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+/* subtle underline on hover */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 330ms ease;
+}
+
+.nav-link:hover::after { transform: scaleX(1); }
+
+.hero { padding-top: 6px; }
+.name { margin: 10px 0 6px; font-size: 42px; letter-spacing: -0.02em; }
+.tagline { margin: 0 0 14px; opacity: 0.75; }
+
+.links { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.section { margin-top: 34px; }
+.section h2 { font-size: 16px; margin: 0 0 10px; }
+
+.list { margin: 0; padding-left: 18px; }
+.item-title { font-weight: 600; }
+
+.text-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.meta { opacity: 0.65; }
+.site-footer {
+  position: fixed;
+  bottom: 16px;
+  left: 0;
+  width: 100%;
+  padding: 0 var(--meta-margin);
+  display: flex;
+  justify-content: space-between;
+  font-size: calc(var(--meta-font-size) * 0.8);
+  color: #6c6c6c;
+  pointer-events: none;
+}
+
+
+/* Home business card layout */
+.home-card {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translateY(-30px);
+}
+
+/* Name styling */
+.name {
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 48px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  line-height: 0.5;
+}
+
+.initial {
+  font-size: 1.15em;
+}
+
+/* Contact info */
+.contact {
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: #404040;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.email-link {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  display: inline-block; /* important so width matches text */
+}
+
+.email-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  height: 1px;
+  width: 0;                    /* start hidden */
+  background: currentColor;
+  transform: translateX(-50%);  /* keep centered */
+  transition: width 330ms ease; /* same timing as your headers */
+}
+
+.email-link:hover::after {
+  width: 100%;                 /* grow to full text width */
+}
+
+
