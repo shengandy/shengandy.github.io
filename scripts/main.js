@@ -16,3 +16,9 @@ function updateClock() {
 
 updateClock();
 setInterval(updateClock, 1000);
+const toggle = document.querySelector(".theme-toggle");
+if (toggle) {
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("night");
+  });
+}
